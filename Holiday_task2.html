@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Box Model Demo</title>
+
+  <style>
+    /* -------------------------------------------------------
+       1. What is CSS Box Model?
+       --------------------------------------------------------
+       Every element in CSS is considered as a box.
+       Box Model consists of:
+       - Content: actual text/image inside the element
+       - Padding: space between content and border
+       - Border: line around the padding/content
+       - Margin: space outside the border
+    */
+
+    /* Basic reset */
+    * {
+      box-sizing: border-box; /* default: content-box, but here set to border-box */
+      font-family: Arial, sans-serif;
+    }
+
+    /* Card layout */
+    .card {
+      width: 250px;
+      border: 2px solid black;    /* Border applied */
+      padding: 15px;              /* Inner spacing (padding) */
+      margin: 20px;               /* Outer spacing (margin) */
+      background-color: #f9f9f9;
+      border-radius: 10px;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+      display: inline-block; /* so multiple cards sit side by side */
+      vertical-align: top;
+    }
+
+    .card h2 {
+      margin-bottom: 10px;
+      font-size: 22px;
+    }
+
+    .card p {
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .card button {
+      margin-top: 10px;
+      padding: 8px 12px;
+      background: blue;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    /* -------------------------------------------------------
+       2. Border styles demonstration
+       --------------------------------------------------------
+       solid, dashed, dotted, double
+    */
+    .border-demo {
+      margin: 15px;
+      padding: 10px;
+      width: 200px;
+      text-align: center;
+      display: inline-block;
+    }
+
+    .solid   { border: 3px solid red; }
+    .dashed  { border: 3px dashed green; }
+    .dotted  { border: 3px dotted blue; }
+    .double  { border: 5px double purple; }
+
+    /* -------------------------------------------------------
+       3. Inline vs Block vs Inline-Block
+       --------------------------------------------------------
+       - inline: width/height ignored, no line break (e.g., <span>)
+       - block: takes full width, starts on new line (e.g., <div>, <p>)
+       - inline-block: acts like inline (sits side by side) but respects width/height
+    */
+    .inline-block-box {
+      width: 150px;
+      height: 100px;
+      border: 2px solid black;
+      margin: 10px;
+      display: inline-block; /* sits side by side */
+      text-align: center;
+      line-height: 100px;
+      background: lightblue;
+    }
+
+    /* -------------------------------------------------------
+       4. box-sizing
+       --------------------------------------------------------
+       - content-box: width = only content (default)
+                      padding + border ADD extra size
+       - border-box: width = content + padding + border
+                     keeps total size fixed
+    */
+    .content-box-demo, .border-box-demo {
+      width: 200px;
+      height: 100px;
+      margin: 10px;
+      padding: 20px;
+      border: 5px solid black;
+      background: lightcoral;
+      display: inline-block;
+    }
+
+    .content-box-demo {
+      box-sizing: content-box; /* total size = width + padding + border */
+    }
+
+    .border-box-demo {
+      box-sizing: border-box;  /* total size stays fixed at 200px */
+      background: lightgreen;
+    }
+
+  </style>
+</head>
+<body>
+
+  <h1>CSS Box Model & Practical Demo</h1>
+
+  <!-- Card layout with padding, margin, border -->
+  <div class="card">
+    <h2>Card Title</h2>
+    <p>This is a sample card description to demonstrate box model with padding, margin, and border.</p>
+    <button>Read More</button>
+  </div>
+
+  <div class="card">
+    <h2>Another Card</h2>
+    <p>Notice how multiple cards sit side by side using display: inline-block.</p>
+    <button>Click Me</button>
+  </div>
+
+  <hr>
+
+  <!-- Border styles demo -->
+  <h2>Different Border Styles</h2>
+  <div class="border-demo solid">Solid Border</div>
+  <div class="border-demo dashed">Dashed Border</div>
+  <div class="border-demo dotted">Dotted Border</div>
+  <div class="border-demo double">Double Border</div>
+
+  <hr>
+
+  <!-- Inline-block demo -->
+  <h2>Three Boxes Side by Side (inline-block)</h2>
+  <div class="inline-block-box">Box 1</div>
+  <div class="inline-block-box">Box 2</div>
+  <div class="inline-block-box">Box 3</div>
+
+  <hr>
+
+  <!-- Box-sizing demo -->
+  <h2>Box-Sizing Demo</h2>
+  <div class="content-box-demo">Content-Box</div>
+  <div class="border-box-demo">Border-Box</div>
+
+</body>
+</html>
